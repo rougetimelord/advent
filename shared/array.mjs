@@ -29,11 +29,13 @@ export const isTheSame = (arr) => {
  * @typedef {Object<number, string[]>} OccurrenceGraph
  * 
  * @param {Array<any>} arr
+ * @param {any|undefined} ignore
  * @returns {OccurrenceGraph}
  */
-export const occurrences = (arr) => {
+export const occurrences = (arr, ignore=undefined) => {
     /**@type {OccurrenceGraph} */
     let obj = {}, set = new Set(arr);
+    if(ignore !== undefined) {set.delete(ignore)};
     for (let sym of set) {
         let x = arr.filter(v => v == sym).length;
         if (!obj?.[x]) {obj[x] = []}
