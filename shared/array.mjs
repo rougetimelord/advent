@@ -26,6 +26,23 @@ export const isTheSame = (arr) => {
 }
 
 /**
+ * @typedef {Object<number, string[]>} OccurrenceGraph
+ * 
+ * @param {Array<any>} arr
+ * @returns {OccurrenceGraph}
+ */
+export const occurrences = (arr) => {
+    /**@type {OccurrenceGraph} */
+    let obj = {}, set = new Set(arr);
+    for (let sym of set) {
+        let x = arr.filter(v => v == sym).length;
+        if (!obj?.[x]) {obj[x] = []}
+        obj[x].push(sym);
+    }
+    return obj;
+}
+
+/**
  * @param {Array} arr 
  * @param {string} symbol A symbol that means empty in context
  */
