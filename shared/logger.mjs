@@ -1,10 +1,11 @@
 /**
  * @param {any} r 
  * @param {any | undefined} a 
+ * @param {string} m
  */
-export const log = (r, a=undefined) => {
+export const log = (r, m=`Got: ${r}`, a=undefined) => {
     if (a) {
         console.assert(r == a);
     }
-    console.log(`Got: ${r}`);
+    console.log(m);
 }
