@@ -1,8 +1,15 @@
 /**
- * 
- * @param {Map<T, T>} map 
- * @param {predicate} predicate 
- * @returns {Map<T, T>}
+ * @template S
+ * @callback predicateCallback
+ * @param {S} value
+ * @returns {boolean}
+ */
+
+/**
+ * @template T, S
+ * @param {Map<T, S>} map 
+ * @param {predicateCallback<S>} predicate
+ * @returns {Map<T, S>}
  */
 export const filter = (map, predicate) => {
     let result = new Map();
@@ -15,16 +22,10 @@ export const filter = (map, predicate) => {
 }
 
 /**
- * @callback predicate
- * @param {U} value
- * @returns {boolean}
- */
-
-/**
- * 
- * @param {Map<T, U>} map 
- * @param {predicate} predicate 
- * @returns {boolean}
+ * @template T, S
+ * @param {Map<T, S>} map 
+ * @param {predicateCallback<S>} predicate 
+ * @returns
  */
 export const any = (map, predicate) => {
     for (let v of map.values()) {
@@ -36,10 +37,10 @@ export const any = (map, predicate) => {
 }
 
 /**
- * 
- * @param {Map<T,U>} map 
+ * @template T, S
+ * @param {Map<T, S>} map 
  * @param  {...T} keys 
- * @returns {T[]}
+ * @returns {(S | undefined)[]}
  */
 export const getMany = (map, ...keys) => {
     let res = []

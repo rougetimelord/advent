@@ -1,5 +1,6 @@
 /**
- * @param {Array[]} arrArr
+ * @template T
+ * @param {T[][]} arrArr
  * @param {number} x
  */
 export const column = (arrArr, x) => {
@@ -7,8 +8,9 @@ export const column = (arrArr, x) => {
 }
 
 /**
- * @param {Array[]} arrArr
- * @returns {Array[]}
+ * @template T
+ * @param {T[][]} arrArr
+ * @returns {T[][]} Input rotated
  */
 export const rotate = (arrArr) => {
     let res = [];
@@ -19,18 +21,22 @@ export const rotate = (arrArr) => {
 }
 
 /**
- * @param {Array} arr 
+ * @template T
+ * @param {T[]} arr 
  */
 export const isTheSame = (arr) => {
     return arr.every((v, _, a) => v === a[0]);
 }
 
 /**
- * @typedef {Object<number, string[]>} OccurrenceGraph
- * 
- * @param {Array<any>} arr
- * @param {any|undefined} ignore
- * @returns {OccurrenceGraph}
+ * @template T
+ * @typedef {Object<number, T[]>} OccurrenceGraph
+ */
+/**
+ * @template T
+ * @param {T[]} arr
+ * @param {T|undefined} ignore
+ * @returns {OccurrenceGraph<T>}
  */
 export const occurrences = (arr, ignore=undefined) => {
     /**@type {OccurrenceGraph} */
@@ -45,8 +51,9 @@ export const occurrences = (arr, ignore=undefined) => {
 }
 
 /**
- * @param {Array} arr 
- * @param {string} symbol A symbol that means empty in context
+ * @template T
+ * @param {T[]} arr 
+ * @param {T} symbol A symbol that means empty in context
  */
 export const isEmpty = (arr, symbol) => {
     return arr[0] == symbol && isTheSame(arr)
