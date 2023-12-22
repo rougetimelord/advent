@@ -71,3 +71,6 @@ export const noOverlapPairs = (arr) => {
     }
     return res;
 }
+
+export const createRangeArray = (start, length) => 
+    [...Array(length).keys()].map(v  => start + v)
