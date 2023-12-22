@@ -58,3 +58,16 @@ export const occurrences = (arr, ignore=undefined) => {
 export const isEmpty = (arr, symbol) => {
     return arr[0] == symbol && isTheSame(arr)
 }
+
+/**
+ * @template T
+ * @param {T[]} arr 
+ * @returns {T[][]}
+ */
+export const noOverlapPairs = (arr) => {
+    let res = [];
+    for (let i = 0; i < arr.length / 2; i++) {
+        res.push([arr[2 * i], arr[2 * i + 1]]);
+    }
+    return res;
+}
