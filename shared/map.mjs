@@ -49,3 +49,12 @@ export const getMany = (map, ...keys) => {
     }
     return res;
 }
+
+/**
+ * @template T, S
+ * @param {Map<T,S>} a 
+ * @param {Map<T,S>} b 
+ */
+export const combineMaps = (a, b) =>{
+    return new Map([...a.entries(), ...b.entries()]);
+}
