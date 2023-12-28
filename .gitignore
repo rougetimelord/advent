@@ -1,2 +1,4 @@
 **prod.*
 **prod2.*
+node_modules
+package*.json
