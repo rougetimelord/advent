@@ -1,4 +1,4 @@
-import { combineMaps, produceRangeMap } from "../shared/map.mjs";
+import { combineMaps } from "../shared/map.mjs";
 import { str2Lines } from "../shared/string.mjs"
 /**
  * @param {string} s
