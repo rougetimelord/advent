@@ -2,3 +2,4 @@
 **prod2.*
 node_modules
 package*.json
+**_data.txt
