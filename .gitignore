@@ -1,5 +1,5 @@
-**prod.*
-**prod2.*
+2023/**/prod.*
+2023/**/prod2.*
 node_modules
 package*.json
 **_data.txt
