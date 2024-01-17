@@ -5,7 +5,7 @@
  * @param {string} m
  */
 export const log = (r, a=undefined, m=`Got: ${r}`) => {
-    if (a) {
+    if (a != undefined) {
         console.assert(r == a);
     }
     console.log(m);
