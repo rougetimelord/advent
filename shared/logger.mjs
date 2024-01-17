@@ -6,7 +6,7 @@
  */
 export const log = (r, a=undefined, m=`Got: ${r}`) => {
     if (a != undefined) {
-        console.assert(r == a);
+        console.assert(String(r) == String(a));
     }
     console.log(m);
 }
