@@ -27,11 +27,15 @@ export const splitInHalf = (s) => [s.slice(0, s.length / 2), s.slice(s.length / 
  * @returns 
  */
 export const findCommon = (...s) => {
-    const searches = Array.from(new Set(s[0].split("")));
-    return searches.reduce((p, v) => {
-        if (s[1].includes(v)) p.push(v);
-        return p;
-    }, [])
+    const hits = new Map(s[0].split("").map(v => [v, 1]));
+    s.slice(1).forEach(str => {
+        for (const hit of hits.keys()) {
+            if(!str.includes(hit)) {
+                hits.delete(hit);
+            }
+        }
+    })
+    return Array.from(hits.keys());
 }
 
 /**
