@@ -8,5 +8,5 @@ import("./main.mjs")
             `${__dirname}/prod_data.txt`, {encoding: "utf8"}
         );
 
-        log(main(data))
+        log(main(data));
     });

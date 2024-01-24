@@ -10,5 +10,5 @@ import("./main.mjs")
 
         const ans = 0 /**@todo fill in sample answer */;
 
-        log(main(data), ans)
+        log(main(data), ans);
     });
