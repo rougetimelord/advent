@@ -4,7 +4,17 @@
  * @param {number} x
  */
 export const column = (arrArr, x) => {
-    return [...arrArr].map(v => v[x])
+    return [...arrArr].map(v => v[x]);
+}
+
+/**
+ * @template T
+ * @param {T[][]} arrArr 
+ * @param {number} y 
+ * @returns 
+ */
+export const row = (arrArr, y) => {
+    return [...rotate(arrArr)].map(v => v[y]);
 }
 
 /**
