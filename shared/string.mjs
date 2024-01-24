@@ -46,3 +46,11 @@ export const priority = (s) => {
     const code = s.charCodeAt(0);
     return (code > 96) ? code - 96 : code - 38;
 }
+
+/**
+ * @param {String} s 
+ * @returns 
+ */
+export const splitToArray = (s) => {
+    return s.split("");
+}
