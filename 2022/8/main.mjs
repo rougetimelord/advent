@@ -5,9 +5,9 @@ import { splitToArray, str2Lines } from "../../shared/string.mjs"
  * @param {string} s
  * @returns {number}
  */
-export const main = (s) => {
+export const main = (s, p2=false) => {
     let grid = str2Lines(s)
-            .map(v => splitToArray(v).map(v => [Number(v), false]));
+            .map(v => splitToArray(v).map(v => [Number(v), false, 0]));
 
     for(let idx = 0; idx < grid.length; idx++) {
         const c = column(grid, idx)
