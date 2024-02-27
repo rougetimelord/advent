@@ -9,4 +9,5 @@ import("./main.mjs")
         );
 
         log(main(data));
+        log(main(data, true));
     });
