@@ -84,3 +84,60 @@ export const noOverlapPairs = (arr) => {
 
 export const createRangeArray = (start, length) => 
     [...Array(length).keys()].map(v  => start + v)
+
+/**
+ * @template T
+ * @param {T[][]} array 
+ * @param {Number[]} index 
+ * @returns {Array.<{val: T, dir: [number, number]}>}
+ */
+export const getAdjacentValues = (array, index) => {
+    const y = index[0];
+    const x = index[1];
+    const left = x - 1 >= 0, right = x + 1 < array[y].length, up = y - 1 >= 0, down = y + 1 < array.length;
+    let result = [];
+    // up, up right, right, down right, down, down left, left, up left
+    if (up) {
+        result.push({val: array[y-1][x],dir: [-1, 0]});
+    }
+    if (up && right) {
+        result.push({val: array[y-1][x+1], dir: [-1, 1]});
+    }
+    if (right) {
+        result.push({val: array[y][x+1], dir: [0, 1]});
+    }
+    if (down && right) {
+        result.push({val: array[y+1][x+1], dir: [1, 1]});
+    }
+    if (down) {
+        result.push({val: array[y+1][x], dir: [1, 0]});
+    }
+    if (down && left) {
+        result.push({val: array[y+1][x-1], dir: [1, -1]});
+    }
+    if (left) {
+        result.push({val: array[y][x-1], dir: [0, -1]});
+    }
+    if (up && left) {
+        result.push({val: array[y-1][x-1], dir: [-1, -1]});
+    }
+
+    return result;
+}
+
+/**
+ * 
+ * @param {number[]} a 
+ * @param {number[]} b 
+ * @returns {number[]}
+ */
+export const addArrays = (a, b) => {
+    if (a.length !== b.length) {
+        throw new Error('can only add arrays of the same length');
+    }
+    let result = []
+    for (let i = 0; i < a.length && i < b.length; i++) {
+        result.push(a[i] + b[i]);
+    }
+    return result
+}
