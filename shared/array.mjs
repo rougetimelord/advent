@@ -87,6 +87,15 @@ export const createRangeArray = (start, length) =>
 
 /**
  * @template T
+ * @param {number} length 
+ * @param {T} [char=undefined] 
+ * @returns {T[]}
+ */
+export const createEmptyArray = (length, char) => 
+    [...Array(length)].map(() => char);
+
+/**
+ * @template T
  * @param {T[][]} array 
  * @param {Number[]} index 
  * @returns {Array.<{val: T, dir: [number, number]}>}

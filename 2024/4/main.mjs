@@ -1,6 +1,32 @@
 import { addArrays, getAdjacentValues } from "../../shared/array.mjs";
 import { splitToArray, str2Lines } from "../../shared/string.mjs"
 
+export const partTwo = (s) => {
+    const matrix = str2Lines(s).map(splitToArray);
+    let sum = 0;
+
+    for (let i = 0; i < matrix.length - 2; i++) {
+        const line = matrix[i];
+
+        for (let j = 0; j < line.length - 2; j++) {
+            const char1 = line[j];
+
+            if (!(char1 == 'M' || char1 == 'S') || !(line[j + 2] == 'M' || line[j + 2] == 'S') || !(matrix[i + 1][j + 1] == 'A')) {
+                continue;
+            }
+
+            const testChar1 = (line[j + 2] == 'M') ? 'S' : 'M';
+            const testChar2 = (char1 == 'M') ? 'S' : 'M';
+            if (!(matrix[i + 2][j] == testChar1) || !(matrix[i + 2][j + 2] == testChar2)) {
+                continue;
+            }
+
+            sum++;
+        }
+    }
+    return sum;
+}
+
 /**
  * @param {string} s
  * @returns {number}

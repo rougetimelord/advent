@@ -1,8 +1,7 @@
 const fs = require("fs");
 
 import("./main.mjs")
-    .then(mod => mod.main)
-    .then(async main => {
+    .then(async module => {
         const log = (await import("../../shared/logger.mjs")).log;
         const data = fs.readFileSync(
             `${__dirname}/test_data.txt`, {encoding: "utf8"}
@@ -10,5 +9,9 @@ import("./main.mjs")
 
         const ans = 18;
 
-        log(main(data), ans);
+        log(module.main(data), ans);
+
+        const ans2 = 9;
+
+        log(module.partTwo(data), ans2);
     });
