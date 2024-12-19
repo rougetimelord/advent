@@ -8,7 +8,9 @@ import("./main.mjs")
             `${__dirname}/test_data.txt`, {encoding: "utf8"}
         );
 
-        const ans = 0 /**@todo fill in sample answer */;
+        // Fill these in :) 
+        const ans = 0;
+        const ans2 = 0;
 
-        log(main(data), ans);
+        main(data, ans, ans2);
     });
